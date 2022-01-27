@@ -30,13 +30,22 @@ function onGalleryItemsContainerClick(evt) {
         return;
     }
     const originalUrl = evt.target.dataset.source;
-    const instance = basicLightbox.create(`<img src=${originalUrl}>`)
+  //   const instance = basicLightbox.create(`<img src=${originalUrl}>`)
+  // instance.show();
+
+   const instance = basicLightbox.create(`<img src=${originalUrl}>`, {
+      onShow: (instance) => { document.addEventListener('onShow', instance) },
+      onClose: (instance) => { document.removeEventListener('onClose', instance) }
+    	})
   instance.show();
+// console.log(evt.target)
+
   //закрытие по ESC
   document.addEventListener('keydown', function(event){
  if(basicLightbox.visible() && event.key === "Escape"){
    instance.close();
- }
+    }
+    // console.log(evt.target)
 });
     }
 
