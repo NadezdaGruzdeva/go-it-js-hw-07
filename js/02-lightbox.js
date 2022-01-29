@@ -28,6 +28,6 @@ function onGalleryItemsContainerClick(evt) {
     }
     }
 const gallery = new SimpleLightbox('.gallery a', { captionsData: `alt`, captionPosition: 'bottom', captionDelay: 250 });
-gallery.on('show.simplelightbox');   
+// gallery.on('show.simplelightbox');   
     
 console.log(galleryItems);
